@@ -1,15 +1,21 @@
+import { useState } from 'react'
 import Todo from './components/Todo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
+import {nanoid} from 'nanoid'
 
 function App(props) {
 
+  const [tasks, setTasks] = useState(props.tasks)
+
   function addTask(name){
-    alert(name)
+    const newTask = {id:"todo-" + nanoid(), name: name, completed:false}
+
+    setTasks([...tasks, newTask])
   }
   
   
-  const taskList = props.tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
+  const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
   return (
     <div className="todoapp stack-large">
       <h1>TOODOO</h1>
