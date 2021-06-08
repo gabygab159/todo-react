@@ -14,8 +14,11 @@ function App(props) {
     setTasks([...tasks, newTask])
   }
   
-  
+
   const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
+
+  const taskNoun = taskList.length !== 1 ? "tasks" : "task";
+  const headingText = `${taskList.length} ${taskNoun} remaning`
   return (
     <div className="todoapp stack-large">
       <h1>TOODOO</h1>
@@ -25,7 +28,7 @@ function App(props) {
         <FilterButton />
         <FilterButton />
       </div>
-      <h2 id="list-heading">3 toodoos remaining</h2>
+      <h2 id="list-heading">{headingText}</h2>
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
