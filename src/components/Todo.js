@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 export default function Todo(props) {
     const [isEditing, setEditing] = useState(false)
     const [newName, setNewname] = useState('')
-    const [filter, setFilter] = useState('')
+ 
 
     function handleChange(event) {
       setNewname(event.target.value)
