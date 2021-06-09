@@ -53,7 +53,7 @@ function App(props) {
     <FilterButton key={name} name={name} isPressed={name === filter} setFilter={setFilter}/>
   ))
 
-  const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} toggleTaskCompleted={toggleTaskCompleted} deleteTask={deleteTask} editTask={editTask} />)
+  const taskList = tasks.filter(FILTER_MAP[filter]).map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} toggleTaskCompleted={toggleTaskCompleted} deleteTask={deleteTask} editTask={editTask} />)
 
 
 
