@@ -14,8 +14,13 @@ function App(props) {
     setTasks([...tasks, newTask])
   }
   
+  function taskListCompleted(id){
+    console.log(tasks[0])
+  }
 
-  const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} />)
+  const taskList = tasks.map(task => <Todo id={task.id} name={task.name} completed={task.completed} key={task.id} taskListCompleted={taskListCompleted} />)
+
+
 
   const taskNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${taskNoun} remaning`
