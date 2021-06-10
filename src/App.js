@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import React , { useState, useRef, useEffect } from 'react'
 import Todo from './components/Todo'
 import Form from './components/Form'
 import FilterButton from './components/FilterButton'
@@ -68,7 +68,7 @@ function App(props) {
   const taskNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${taskNoun} remaning`
   const listHeadingRef = useRef(null)
-  const prevTaskLength = usePrevious(tasks.length)
+  const prevTaskLength = usePrevious(tasks.length);
 
   useEffect(() => {
     if (tasks.length - prevTaskLength === -1) {
@@ -83,7 +83,7 @@ function App(props) {
       <div className="filters btn-group stack-exception">
      {filterList}
       </div>
-      <h2 id="list-heading" tabIndex="-1">{headingText}</h2>
+      <h2 id="list-heading" tabIndex="-1" ref={listHeadingRef}>{headingText}</h2>
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
