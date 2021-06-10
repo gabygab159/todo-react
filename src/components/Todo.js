@@ -68,5 +68,12 @@ export default function Todo(props) {
       </div>
     );
 
+      useEffect(()=> {
+        if(isEditing) {
+          editFieldRef.current.focus();
+        }
+      },[isEditing])
+
+      
     return <li className="todo">{isEditing ? editingTemplate : viewTemplate}</li>;
 }
